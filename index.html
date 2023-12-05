@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>carousel</title>
+</head>
+<body>
+    <div class="images" id="container">
+       
+    </div>
+    <button onclick="prevbtn()"><< Previous</button>
+
+    <button onclick="nextbtn()">Next >></button>
+
+    <script>
+        const images = [
+            "https://images.pexels.com/photos/772803/pexels-photo-772803.jpeg?auto=compress&cs=tinysrgb&w=600",
+            "https://images.pexels.com/photos/316398/pexels-photo-316398.jpeg?auto=compress&cs=tinysrgb&w=600",
+            "https://images.pexels.com/photos/316398/pexels-photo-316398.jpeg?auto=compress&cs=tinysrgb&w=600",
+            "https://images.pexels.com/photos/707344/pexels-photo-707344.jpeg?auto=compress&cs=tinysrgb&w=600"
+        ]
+        var present = 0;
+        function nextbtn(){
+            const container = document.getElementById('container')
+
+            // for(var i =present; i<images.length; i++){
+            //     container.innerHTML = `
+            //     <img src=${images[i]}>
+            //     `
+            // }
+
+            if(present<=images.length-1){
+                present++;
+                console.log(present)
+                container.innerHTML = `
+                <img src=${images[present-1]}>
+                `
+            }
+           
+        }
+        function prevbtn(){
+            const container = document.getElementById('container')
+
+            if(present>0){ //4 3 2 1 0 1 2 3 4
+                present--;
+                console.log(present)
+                container.innerHTML = `
+                <img src=${images[present]}>
+                `
+            }
+           
+        }
+
+    </script>
+    
+</body>
+</html>
